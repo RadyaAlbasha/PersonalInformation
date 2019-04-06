@@ -4,50 +4,51 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
-public abstract class SceneBase extends Pane {
+public class SceneBase extends Pane {
 
-    protected final Label label;
-    protected final Label label0;
-    protected final Label label1;
-    protected final Label label2;
-    protected final Label label3;
-    protected final Label label4;
-    protected final TextField textField;
-    protected final TextField textField0;
-    protected final TextField textField1;
-    protected final TextField textField2;
-    protected final TextField textField3;
-    protected final TextField textField4;
-    protected final Button button;
-    protected final Button button0;
-    protected final Button button1;
-    protected final Button button2;
-    protected final Button button3;
-    protected final Button button4;
-    protected final Button button5;
+    protected final Label ID;
+    protected final Label FName;
+    protected final Label MidName;
+    protected final Label LName;
+    protected final Label Email;
+    protected final Label PhoneNum;
+    protected final TextField IDField;
+    protected final TextField FNameField;
+    protected final TextField MidNameField;
+    protected final TextField LNameField;
+    protected final TextField EmailField;
+    protected final TextField PhoneField;
+    protected final Button New;
+    protected final Button Update;
+    protected final Button Delete;
+    protected final Button First;
+    protected final Button Previous;
+    protected final Button Next;
+    protected final Button Last;
 
-    public SceneBase() {
+    public SceneBase(Stage stage) {
 
-        label = new Label();
-        label0 = new Label();
-        label1 = new Label();
-        label2 = new Label();
-        label3 = new Label();
-        label4 = new Label();
-        textField = new TextField();
-        textField0 = new TextField();
-        textField1 = new TextField();
-        textField2 = new TextField();
-        textField3 = new TextField();
-        textField4 = new TextField();
-        button = new Button();
-        button0 = new Button();
-        button1 = new Button();
-        button2 = new Button();
-        button3 = new Button();
-        button4 = new Button();
-        button5 = new Button();
+        ID = new Label();
+        FName = new Label();
+        MidName = new Label();
+        LName = new Label();
+        Email = new Label();
+        PhoneNum = new Label();
+        IDField = new TextField();
+        FNameField = new TextField();
+        MidNameField = new TextField();
+        LNameField = new TextField();
+        EmailField = new TextField();
+        PhoneField = new TextField();
+        New = new Button();
+        Update = new Button();
+        Delete = new Button();
+        First = new Button();
+        Previous = new Button();
+        Next = new Button();
+        Last = new Button();
 
         setMaxHeight(USE_PREF_SIZE);
         setMaxWidth(USE_PREF_SIZE);
@@ -56,108 +57,110 @@ public abstract class SceneBase extends Pane {
         setPrefHeight(400.0);
         setPrefWidth(600.0);
 
-        label.setLayoutX(58.0);
-        label.setLayoutY(39.0);
-        label.setText("ID:");
+        ID.setLayoutX(58.0);
+        ID.setLayoutY(39.0);
+        ID.setText("ID:");
 
-        label0.setLayoutX(58.0);
-        label0.setLayoutY(83.0);
-        label0.setText("First Name:");
+        FName.setLayoutX(58.0);
+        FName.setLayoutY(83.0);
+        FName.setText("First Name:");
 
-        label1.setLayoutX(58.0);
-        label1.setLayoutY(126.0);
-        label1.setText("Middle Name:");
+        MidName.setLayoutX(58.0);
+        MidName.setLayoutY(126.0);
+        MidName.setText("Middle Name:");
 
-        label2.setLayoutX(58.0);
-        label2.setLayoutY(168.0);
-        label2.setText("Last Name:");
+        LName.setLayoutX(58.0);
+        LName.setLayoutY(168.0);
+        LName.setText("Last Name:");
 
-        label3.setLayoutX(58.0);
-        label3.setLayoutY(215.0);
-        label3.setText("Email:");
+        Email.setLayoutX(58.0);
+        Email.setLayoutY(215.0);
+        Email.setText("Email:");
 
-        label4.setLayoutX(58.0);
-        label4.setLayoutY(261.0);
-        label4.setText("Phone:");
+        PhoneNum.setLayoutX(58.0);
+        PhoneNum.setLayoutY(261.0);
+        PhoneNum.setText("Phone:");
 
-        textField.setLayoutX(207.0);
-        textField.setLayoutY(34.0);
+        IDField.setLayoutX(207.0);
+        IDField.setLayoutY(34.0);
+        IDField.setDisable(true);
 
-        textField0.setLayoutX(207.0);
-        textField0.setLayoutY(78.0);
+        FNameField.setLayoutX(207.0);
+        FNameField.setLayoutY(78.0);
 
-        textField1.setLayoutX(207.0);
-        textField1.setLayoutY(121.0);
+        MidNameField.setLayoutX(207.0);
+        MidNameField.setLayoutY(121.0);
 
-        textField2.setLayoutX(207.0);
-        textField2.setLayoutY(163.0);
+        LNameField.setLayoutX(207.0);
+        LNameField.setLayoutY(163.0);
 
-        textField3.setLayoutX(207.0);
-        textField3.setLayoutY(210.0);
+        EmailField.setLayoutX(207.0);
+        EmailField.setLayoutY(210.0);
+        EmailField.setPrefWidth(300);
 
-        textField4.setLayoutX(207.0);
-        textField4.setLayoutY(256.0);
+        PhoneField.setLayoutX(207.0);
+        PhoneField.setLayoutY(256.0);
 
-        button.setLayoutX(42.0);
-        button.setLayoutY(333.0);
-        button.setMnemonicParsing(false);
-        button.setText("New");
+        New.setLayoutX(42.0);
+        New.setLayoutY(333.0);
+        New.setMnemonicParsing(false);
+        New.setText("New");
 
-        button0.setLayoutX(105.0);
-        button0.setLayoutY(333.0);
-        button0.setMnemonicParsing(false);
-        button0.setPrefHeight(31.0);
-        button0.setPrefWidth(76.0);
-        button0.setText("Update");
+        Update.setLayoutX(105.0);
+        Update.setLayoutY(333.0);
+        Update.setMnemonicParsing(false);
+        Update.setPrefHeight(31.0);
+        Update.setPrefWidth(76.0);
+        Update.setText("Update");
 
-        button1.setLayoutX(191.0);
-        button1.setLayoutY(333.0);
-        button1.setMnemonicParsing(false);
-        button1.setPrefHeight(31.0);
-        button1.setPrefWidth(69.0);
-        button1.setText("Delete");
+        Delete.setLayoutX(191.0);
+        Delete.setLayoutY(333.0);
+        Delete.setMnemonicParsing(false);
+        Delete.setPrefHeight(31.0);
+        Delete.setPrefWidth(69.0);
+        Delete.setText("Delete");
 
-        button2.setLayoutX(271.0);
-        button2.setLayoutY(333.0);
-        button2.setMnemonicParsing(false);
-        button2.setPrefHeight(31.0);
-        button2.setPrefWidth(63.0);
-        button2.setText("First");
+        First.setLayoutX(271.0);
+        First.setLayoutY(333.0);
+        First.setMnemonicParsing(false);
+        First.setPrefHeight(31.0);
+        First.setPrefWidth(63.0);
+        First.setText("First");
 
-        button3.setLayoutX(343.0);
-        button3.setLayoutY(333.0);
-        button3.setMnemonicParsing(false);
-        button3.setText("Previous");
+        Previous.setLayoutX(343.0);
+        Previous.setLayoutY(333.0);
+        Previous.setMnemonicParsing(false);
+        Previous.setText("Previous");
 
-        button4.setLayoutX(429.0);
-        button4.setLayoutY(333.0);
-        button4.setMnemonicParsing(false);
-        button4.setText("Next");
+        Next.setLayoutX(429.0);
+        Next.setLayoutY(333.0);
+        Next.setMnemonicParsing(false);
+        Next.setText("Next");
 
-        button5.setLayoutX(490.0);
-        button5.setLayoutY(333.0);
-        button5.setMnemonicParsing(false);
-        button5.setText("Last");
+        Last.setLayoutX(490.0);
+        Last.setLayoutY(333.0);
+        Last.setMnemonicParsing(false);
+        Last.setText("Last");
 
-        getChildren().add(label);
-        getChildren().add(label0);
-        getChildren().add(label1);
-        getChildren().add(label2);
-        getChildren().add(label3);
-        getChildren().add(label4);
-        getChildren().add(textField);
-        getChildren().add(textField0);
-        getChildren().add(textField1);
-        getChildren().add(textField2);
-        getChildren().add(textField3);
-        getChildren().add(textField4);
-        getChildren().add(button);
-        getChildren().add(button0);
-        getChildren().add(button1);
-        getChildren().add(button2);
-        getChildren().add(button3);
-        getChildren().add(button4);
-        getChildren().add(button5);
+        getChildren().add(ID);
+        getChildren().add(FName);
+        getChildren().add(MidName);
+        getChildren().add(LName);
+        getChildren().add(Email);
+        getChildren().add(PhoneNum);
+        getChildren().add(IDField);
+        getChildren().add(FNameField);
+        getChildren().add(MidNameField);
+        getChildren().add(LNameField);
+        getChildren().add(EmailField);
+        getChildren().add(PhoneField);
+        getChildren().add(New);
+        getChildren().add(Update);
+        getChildren().add(Delete);
+        getChildren().add(First);
+        getChildren().add(Previous);
+        getChildren().add(Next);
+        getChildren().add(Last);
 
     }
 }
