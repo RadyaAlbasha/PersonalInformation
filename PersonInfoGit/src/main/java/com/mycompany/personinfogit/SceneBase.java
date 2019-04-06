@@ -112,7 +112,6 @@ public class SceneBase extends Pane {
 
         IDField.setLayoutX(207.0);
         IDField.setLayoutY(34.0);
-        IDField.setDisable(true);
 
         FNameField.setLayoutX(207.0);
         FNameField.setLayoutY(78.0);
