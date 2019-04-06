@@ -225,24 +225,7 @@ public class SceneBase extends Pane {
         Last.setOnAction((ActionEvent e) -> {    
             //////////////////radya////////////////////
             //here
-             try {
-                resultSet.last();
-                IDValue = resultSet.getInt(1);
-                IDField.setText(Integer.toString(IDValue));
-                FNameValue = resultSet.getString(2);
-                FNameField.setText(FNameValue);
-                MidNameValue = resultSet.getString(3);
-                MidNameField.setText(MidNameValue);
-                LNameValue = resultSet.getString(4);
-                LNameField.setText(LNameValue);
-                EmailValue = resultSet.getString(5);
-                EmailField.setText(EmailValue);
-                PhoneValue = resultSet.getString(6);
-                PhoneField.setText(PhoneValue);
-
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
+             
             
             ///////////////////////////////////////////////////////
         });
