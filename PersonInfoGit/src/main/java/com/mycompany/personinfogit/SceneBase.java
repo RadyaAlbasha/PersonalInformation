@@ -1,5 +1,6 @@
 package com.mycompany.personinfogit;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -30,6 +31,10 @@ public class SceneBase extends Pane {
 
     public SceneBase(Stage stage) {
 
+        //////////////////mayada -> database////////////////////
+        //here
+        
+        ///////////////////////////////////////////////////////
         ID = new Label();
         FName = new Label();
         MidName = new Label();
@@ -101,23 +106,25 @@ public class SceneBase extends Pane {
         PhoneField.setLayoutX(207.0);
         PhoneField.setLayoutY(256.0);
 
-        New.setLayoutX(42.0);
+        New.setLayoutX(32.0);
         New.setLayoutY(333.0);
         New.setMnemonicParsing(false);
+        New.setPrefHeight(31.0);
+        New.setPrefWidth(63.0);
         New.setText("New");
 
         Update.setLayoutX(105.0);
         Update.setLayoutY(333.0);
         Update.setMnemonicParsing(false);
         Update.setPrefHeight(31.0);
-        Update.setPrefWidth(76.0);
+        Update.setPrefWidth(63.0);
         Update.setText("Update");
 
         Delete.setLayoutX(191.0);
         Delete.setLayoutY(333.0);
         Delete.setMnemonicParsing(false);
         Delete.setPrefHeight(31.0);
-        Delete.setPrefWidth(69.0);
+        Delete.setPrefWidth(63.0);
         Delete.setText("Delete");
 
         First.setLayoutX(271.0);
@@ -130,16 +137,22 @@ public class SceneBase extends Pane {
         Previous.setLayoutX(343.0);
         Previous.setLayoutY(333.0);
         Previous.setMnemonicParsing(false);
+        Previous.setPrefHeight(31.0);
+        Previous.setPrefWidth(73.0);
         Previous.setText("Previous");
 
         Next.setLayoutX(429.0);
         Next.setLayoutY(333.0);
         Next.setMnemonicParsing(false);
+        Next.setPrefHeight(31.0);
+        Next.setPrefWidth(63.0);
         Next.setText("Next");
 
-        Last.setLayoutX(490.0);
+        Last.setLayoutX(500.0);
         Last.setLayoutY(333.0);
         Last.setMnemonicParsing(false);
+        Last.setPrefHeight(31.0);
+        Last.setPrefWidth(63.0);
         Last.setText("Last");
 
         getChildren().add(ID);
@@ -161,6 +174,35 @@ public class SceneBase extends Pane {
         getChildren().add(Previous);
         getChildren().add(Next);
         getChildren().add(Last);
+        
+        First.setOnAction((ActionEvent e) -> {
+           
+        });
+
+        Last.setOnAction((ActionEvent e) -> {
+          
+        });
+
+        Next.setOnAction((ActionEvent e) -> {
+       
+        });
+
+        Previous.setOnAction((ActionEvent e) -> {
+      
+        });
+
+        Delete.setOnAction((ActionEvent e) -> {
+         
+        });
+
+        New.setOnAction((ActionEvent e) -> {
+    
+        });
+
+        Update.setOnAction((ActionEvent e) -> {
+        
+        });
+
 
     }
 }
