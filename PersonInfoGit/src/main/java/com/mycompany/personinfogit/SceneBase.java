@@ -198,7 +198,7 @@ public class SceneBase extends Pane {
         getChildren().add(Previous);
         getChildren().add(Next);
         getChildren().add(Last);
-        
+        connect();
         First.setOnAction((ActionEvent e) -> {
             //////////////////mayada////////////////////
             //here
