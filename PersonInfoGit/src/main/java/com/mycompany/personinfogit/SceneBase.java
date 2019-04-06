@@ -1,11 +1,13 @@
 package com.mycompany.personinfogit;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class SceneBase extends Pane {
 
@@ -176,33 +178,69 @@ public class SceneBase extends Pane {
         getChildren().add(Last);
         
         First.setOnAction((ActionEvent e) -> {
-           
+            //////////////////mayada////////////////////
+            //here
+            
+            ///////////////////////////////////////////////////////
         });
 
-        Last.setOnAction((ActionEvent e) -> {
-          
+        Last.setOnAction((ActionEvent e) -> {    
+            //////////////////radya////////////////////
+            //here
+            
+            ///////////////////////////////////////////////////////
         });
 
         Next.setOnAction((ActionEvent e) -> {
-       
+            //////////////////mayada////////////////////
+            //here
+            
+            ///////////////////////////////////////////////////////
         });
 
         Previous.setOnAction((ActionEvent e) -> {
-      
+            //////////////////radya////////////////////
+            //here
+            
+            ///////////////////////////////////////////////////////
         });
 
         Delete.setOnAction((ActionEvent e) -> {
-         
+            //////////////////mayada////////////////////
+            //here
+            
+            ///////////////////////////////////////////////////////
         });
 
         New.setOnAction((ActionEvent e) -> {
-    
+            //////////////////radya////////////////////
+            //here
+            
+            ///////////////////////////////////////////////////////
         });
 
         Update.setOnAction((ActionEvent e) -> {
-        
+            //////////////////mayada////////////////////
+            //here
+            
+            ///////////////////////////////////////////////////////
         });
 
-
+        stage.setOnCloseRequest(
+                new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent t) {
+                //////////////////mayada////////////////////
+                //here
+            
+                ///////////////////////////////////////////////////////
+            }
+        }
+        );
     }
+    
+    //////////////////mayada functions////////////////////
+    //here
+            
+    ///////////////////////////////////////////////////////
 }
