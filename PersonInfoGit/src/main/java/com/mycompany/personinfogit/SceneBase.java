@@ -1,16 +1,38 @@
 package com.mycompany.personinfogit;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import javax.sql.DataSource;
 
 public class SceneBase extends Pane {
 
+     DataSource dataSource = null;
+    Connection connection = null;
+    Statement statment = null;
+    ResultSet resultSet = null;
+    
+
+    int IDValue;
+    String FNameValue;
+    String LNameValue;
+    String MidNameValue;
+    String EmailValue;
+    String PhoneValue;
+
+    boolean newPerson;
+    
     protected final Label ID;
     protected final Label FName;
     protected final Label MidName;
@@ -180,6 +202,23 @@ public class SceneBase extends Pane {
         First.setOnAction((ActionEvent e) -> {
             //////////////////mayada////////////////////
             //here
+            try {
+                resultSet.first();
+                IDValue = resultSet.getInt(1);
+                IDField.setText(Integer.toString(IDValue));
+                FNameValue = resultSet.getString(2);
+                FNameField.setText(FNameValue);
+                MidNameValue = resultSet.getString(3);
+                MidNameField.setText(MidNameValue);
+                LNameValue = resultSet.getString(4);
+                LNameField.setText(LNameValue);
+                EmailValue = resultSet.getString(5);
+                EmailField.setText(EmailValue);
+                PhoneValue = resultSet.getString(6);
+                PhoneField.setText(PhoneValue);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             
             ///////////////////////////////////////////////////////
         });
@@ -187,6 +226,24 @@ public class SceneBase extends Pane {
         Last.setOnAction((ActionEvent e) -> {    
             //////////////////radya////////////////////
             //here
+             try {
+                resultSet.last();
+                IDValue = resultSet.getInt(1);
+                IDField.setText(Integer.toString(IDValue));
+                FNameValue = resultSet.getString(2);
+                FNameField.setText(FNameValue);
+                MidNameValue = resultSet.getString(3);
+                MidNameField.setText(MidNameValue);
+                LNameValue = resultSet.getString(4);
+                LNameField.setText(LNameValue);
+                EmailValue = resultSet.getString(5);
+                EmailField.setText(EmailValue);
+                PhoneValue = resultSet.getString(6);
+                PhoneField.setText(PhoneValue);
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             
             ///////////////////////////////////////////////////////
         });
@@ -194,35 +251,135 @@ public class SceneBase extends Pane {
         Next.setOnAction((ActionEvent e) -> {
             //////////////////mayada////////////////////
             //here
-            
+            try {
+                if (resultSet.isLast()) {
+                    resultSet.beforeFirst();
+                }
+                resultSet.next();
+                IDValue = resultSet.getInt(1);
+                IDField.setText(Integer.toString(IDValue));
+                FNameValue = resultSet.getString(2);
+                FNameField.setText(FNameValue);
+                MidNameValue = resultSet.getString(3);
+                MidNameField.setText(MidNameValue);
+                LNameValue = resultSet.getString(4);
+                LNameField.setText(LNameValue);
+                EmailValue = resultSet.getString(5);
+                EmailField.setText(EmailValue);
+                PhoneValue = resultSet.getString(6);
+                PhoneField.setText(PhoneValue);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             ///////////////////////////////////////////////////////
         });
 
         Previous.setOnAction((ActionEvent e) -> {
             //////////////////radya////////////////////
             //here
-            
+            try {
+                if (resultSet.isFirst()) {
+                    resultSet.afterLast();
+                }
+                resultSet.previous();
+                IDValue = resultSet.getInt(1);
+                IDField.setText(Integer.toString(IDValue));
+                FNameValue = resultSet.getString(2);
+                FNameField.setText(FNameValue);
+                MidNameValue = resultSet.getString(3);
+                MidNameField.setText(MidNameValue);
+                LNameValue = resultSet.getString(4);
+                LNameField.setText(LNameValue);
+                EmailValue = resultSet.getString(5);
+                EmailField.setText(EmailValue);
+                PhoneValue = resultSet.getString(6);
+                PhoneField.setText(PhoneValue);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             ///////////////////////////////////////////////////////
         });
 
         Delete.setOnAction((ActionEvent e) -> {
             //////////////////mayada////////////////////
             //here
-            
+            try {
+
+                    resultSet.deleteRow();
+                    clearFields();
+                    
+                
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             ///////////////////////////////////////////////////////
         });
 
         New.setOnAction((ActionEvent e) -> {
             //////////////////radya////////////////////
             //here
-            
+            try {
+                //clearing fields
+                clearFields();
+                //Setting flag   
+                newPerson = true;
+                //go to new row
+                resultSet.moveToInsertRow();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             ///////////////////////////////////////////////////////
         });
 
         Update.setOnAction((ActionEvent e) -> {
             //////////////////mayada////////////////////
             //here
-            
+            try {
+                if (newPerson) {
+                    if (FNameField.getText().isEmpty() || MidNameField.getText().isEmpty() || LNameField.getText().isEmpty() || EmailField.getText().isEmpty() || PhoneField.getText().isEmpty()) {
+                        fillFieldsErrorMsg();
+                    } else {
+ 
+                        resultSet.updateInt(1, IDValue);
+                        FNameValue = FNameField.getText();
+                        resultSet.updateString(2, FNameValue);
+                        MidNameValue = MidNameField.getText();
+                        resultSet.updateString(3, MidNameValue);
+                        LNameValue = LNameField.getText();
+                        resultSet.updateString(4, LNameValue);
+                        EmailValue = EmailField.getText();
+                        resultSet.updateString(5, EmailValue);
+                        PhoneValue = PhoneField.getText();
+                        resultSet.updateString(6, PhoneValue);
+                        resultSet.insertRow();
+                        newPerson = false;
+                        clearFields();
+                        
+
+                    }
+                } else {
+                    if (FNameField.getText().isEmpty() || MidNameField.getText().isEmpty() || LNameField.getText().isEmpty() || EmailField.getText().isEmpty() || PhoneField.getText().isEmpty()) {
+                        fillFieldsErrorMsg();
+                    } else {
+                        
+                        FNameValue = FNameField.getText();
+                        resultSet.updateString(2, FNameValue);
+                        MidNameValue = MidNameField.getText();
+                        resultSet.updateString(3, MidNameValue);
+                        LNameValue = LNameField.getText();
+                        resultSet.updateString(4, LNameValue);
+                        EmailValue = EmailField.getText();
+                        resultSet.updateString(5, EmailValue);
+                        PhoneValue = PhoneField.getText();
+                        resultSet.updateString(6, PhoneValue);
+                        resultSet.updateRow();
+                        clearFields();
+                    }
+                }
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             ///////////////////////////////////////////////////////
         });
 
@@ -232,7 +389,19 @@ public class SceneBase extends Pane {
             public void handle(WindowEvent t) {
                 //////////////////mayada////////////////////
                 //here
-            
+                     try {
+                    if (resultSet != null) {
+                        resultSet.close();
+                    }
+                    if (statment != null) {
+                        statment.close();
+                    }
+                    if (connection != null) {
+                        connection.close();
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 ///////////////////////////////////////////////////////
             }
         }
@@ -241,6 +410,42 @@ public class SceneBase extends Pane {
     
     //////////////////mayada functions////////////////////
     //here
+         public void fillFieldsErrorMsg() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Empty Fields");
+        alert.setHeaderText("Error");
+        alert.setContentText("Insert values Into all Fields Please");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.OK) {
+                System.out.println("Pressed OK.");
+            }
+        });
+    }
+
+    public void clearFields() {
+        IDField.clear();
+        FNameField.clear();
+        MidNameField.clear();
+        LNameField.clear();
+        EmailField.clear();
+        PhoneField.clear();
+    }
+
+   
+
+    public void connect() {
+
+        try {
+            dataSource = DataBaseConnection.getMySQLDataSource();
+            connection = dataSource.getConnection();
+            statment = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            resultSet = statment.executeQuery("select * from person");
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
             
     ///////////////////////////////////////////////////////
 }

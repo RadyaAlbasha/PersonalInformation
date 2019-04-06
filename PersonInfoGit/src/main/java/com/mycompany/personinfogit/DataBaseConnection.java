@@ -24,9 +24,7 @@ public class DataBaseConnection {
          String USERNAME="root";
          String PASSWORD="root";
          
-        MysqlDataSource mysqlDataSource = null;
-       
-            mysqlDataSource = new MysqlDataSource();
+        MysqlDataSource mysqlDataSource  = new MysqlDataSource();
             mysqlDataSource.setURL(URL);
             mysqlDataSource.setUser(USERNAME);
             mysqlDataSource.setPassword(PASSWORD);
